@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Survivor Project</title>
+<!-- Jquery -->
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+	<!-- 	Firebase init  --> 
+  <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script> 
+
+	<!-- Leaflet stylesheet followed by javascript -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+   integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin=""/>
+
+   <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+   integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+   crossorigin=""></script>
+
+<!-- Links for the cluster group plugin -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.1.0/dist/MarkerCluster.css">
+<!-- <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.1.0/dist/MarkerCluster.Default.css"> -->
+<script src="https://unpkg.com/leaflet.markercluster@1.1.0/dist/leaflet.markercluster.js"></script>
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<!-- Google Roboto Font -->
+	<link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Roboto|Quicksand" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="assets/style.css">
+</head>
+
+<body>
+
+  <nav id="navbar" class="navbar navbar-toggleable-md navbar-light bg-faded">
+
+  	<!-- - Navbar  -->
+	  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  
+	
+	  <a class="navbar-brand" href="#">
+	  <img src="assets/images/logo-for-map.png" height="40px" alt="THE SURVIVOR PROJECT">
+	  </a>
+
+
+	  <div class="justify-content-end collapse navbar-collapse" id="navbarNav">
+
+	    <ul class="navbar-nav">
+	      <li class="nav-item">
+	        <a class="nav-link navigation" data-toggle="modal" data-target=".about-page" href="#">ABOUT</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link navigation" href="#">RESOURCES</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link navigation" data-toggle="modal" data-target="#action-page" href="#">TAKE ACTION</a>
+	      </li>
+	      <li class="nav-item">
+	        <button class=" btn btn-primary share-your-story-button" data-toggle="modal" data-target=".story-page" href="#">SHARE YOUR STORY</button>
+          </li>
+    	</ul>
+    	</div>
+
+  </nav>
+
+   	
+
+<!-- Modal for about page-->	
+<div class="modal fade about-page" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">About Survivor Project</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      In a world where victims and survivors of sexual assault are continuously silenced, denied, and blamed (as most recently perpetuated by the Trump Administration's rescinding of protections for victims on college campuses), we, as a group of survivors, activists, and web developers, have created this digital space for all victims and survivors to share our stories anonymously, make our voices heard, know we are not alone, take action for a world free from sexual assault.
+	      <br><br>
+	      We created this space especially to highlight and provide a platform for the narratives of individuals who can’t utilize normative methods of seeking justice, including people of color, LGBTQ+ individuals, sex workers, refugees and immigrants, and people who experience sexual assault by police and state actors. 
+	      <br> <br>
+	      A world free from sexual assault looks like:
+	      <ul>
+	      <li>Point one</li>
+	      <li>Point two</li>
+	      <li>Point three</li>
+
+	      </ul>
+
+  
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+  
+
+ <!--  <! <!Modal for take action page> -->
+	<div class="modal fade" id="action-page" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Take Action</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      CONTENT GOES HERE
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+  <!-- Modal for share your story page -->
+	<div class="modal fade story-page" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Share Your Story</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      Thank you for sharing your story. Your story will be anonymous. We will map it based on the zipcode you provide here. Your voice matters. 
+
+	      <form>
+	      	
+	      	<div class="form-group">
+    		<label for="zipcode"></br>Zipcode:</label>
+    		<input type="number" class="form-control" id="zipcode" aria-describedby="emailHelp" placeholder="Enter your Zipcode">
+  			</div>
+
+	      	<div class="form-group">
+    			<label for="exampleTextarea">Your Story:</label>
+    			<textarea class="form-control" id="story" rows="5"></textarea>
+  			</div>
+
+	      </form>
+
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary" id="submit-button">Share</button>
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Modal for trigger warning -->
+	<div class="modal fade" id="trigger-warning" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Trigger Warning</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      This webpage and pages it links to contains information about sexual assault and/or violence which may be triggering to survivors. If you are feeling triggered, please visit our resources page. 
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary white-button" onclick="history.back()">BACK</button>
+	        <button type="button" class="btn btn-primary purple-button" data-dismiss="modal">PROCEED TO MAP</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Modal for stories-->	
+<div class="modal fade" id="stories-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="story-title"></h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body" id="story-content">
+	      CONTENT GOES HERE
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Modal for Contact Us -->
+	<div class="modal fade contact-us" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Contact Us</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      We would love to hear from you. Please fill out the form below or email us at: .  
+
+	    	<form>
+    			<div class="form-group">
+     				<label for="usr">Name:</label>
+  						<input type="text" class="form-control" id="usr">
+
+     				<label for="email">Email:</label>
+      					<input type="email" class="form-control" id="email" placeholder="Enter email">
+    			
+     				<label for="usr">Subject:</label>
+  					<input type="text" class="form-control" id="usr">
+
+ 					<label for="usr">Message:</label>
+  				<textarea class="form-control" rows="5" id="comment"></textarea>
+    			</div>
+  			</form>
+		</div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary purple-button" id="contact-us-submit-button">SUBMIT</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+<!-- <div class="container-fluid"> -->
+	 <div id="map" style='width: 100%; height: calc(100vh - 160px);'></div>
+<!-- </div> -->
+
+
+
+
+    <!-- This is the Footer -->
+    <div class= "footer">
+    	<!-- <form class="form-inline justify-content-center">
+    	<input class="form-control mr-sm-2" type="text" placeholder="Search">
+    	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  		</form> -->
+  		<p><center>If you are in immediate danger, please contact the <a class="footer-link" href="https://www.rainn.org/" target="_blank">National Sexual Assault Hotline</a>: 1-800-656-4673. </br><a class="footer-link" data-toggle="modal" data-target=".contact-us" href="#">Contact Us</a> | Copyright 2017. All Rights Reserved.</center></p>
+
+
+    </div>
+    <!-- <nav id="navbar" class="navbar fixed-bottom navbar-light bg-light"> -->
+  		<!-- <a class="navbar-brand" href="#">Fixed bottom</a> -->
+  		<!-- <form class="form-inline"> -->
+		  <!-- <div class="form-group mx-sm-3"> -->
+		    <!-- <label for="inputPassword2" class="sr-only">Email Address </label> -->
+		    <!-- <input type="password" class="form-control" id="inputPassword2" placeholder="Email"> -->
+		  <!-- </div> -->
+		  <!-- <button type="submit" class="btn btn-secondary">Sign Up for Updates</button> -->
+		     <!-- <p>&#174;Copyright 2017</p> -->
+		<!-- </form> -->
+<!--     </nav> -->
+<script type="text/javascript" src="assets/javascript/map.js"></script>
+</body>
+</html>

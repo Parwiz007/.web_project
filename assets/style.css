@@ -1,0 +1,121 @@
+p {font-family: "Archivo Narrow";
+}
+
+#navbar{
+	background-color: rgba(86,142,163,0.7);
+	border-color: #ffffff;
+	padding: 20px 50px;
+
+}
+
+
+.navigation {
+	font-family: "Archivo Narrow";
+	color: #ffffff !important;
+
+}
+
+.navigation:hover {
+	color: #5f3356 !important;
+}
+
+.share-your-story-button {
+	color: #fff;
+	background-color: #5f3356;
+	border-color: rgba(95,51,86,0);
+	font-family: "Archivo Narrow";
+}
+
+.share-your-story-button:hover {
+	color: #fff;
+	background-color: rgba(95,51,86,0.7);
+	border-color: rgba(95,51,86,0);
+	font-family: "Archivo Narrow";
+}
+.footer-link {
+	color: #fff;
+	text-decoration: underline;
+}
+.footer-link:hover {
+	color: #5f3356;
+	text-decoration: underline;
+}
+.purple-button {
+	color: #fff;
+	background-color: #5f3356;
+	border-color: rgba(95,51,86,0);
+	font-family: "Archivo Narrow";
+}
+
+.purple-button:hover {
+	color: #fff;
+	background-color: rgba(95,51,86,0.7);
+	border-color: rgba(95,51,86,0);
+	font-family: "Archivo Narrow";
+}
+
+.modal-header {
+	background-color: #5f3356;
+	color: #fff;
+}
+
+.close {
+	color: #fff;
+}
+.close:hover {
+	color: #fff;
+}
+
+.white-button {
+	font-family: "Archivo Narrow";
+}
+
+.footer {
+	background-color: rgba(86,142,163,0.7);
+		padding: 5px;
+	color: #fff;
+	font-size: 10pt;
+}
+
+
+
+/*Leaflet Cluster Plugin*/
+.marker-cluster-small {
+	background-color: rgba(95, 51, 86, 0.6);
+	}
+.marker-cluster-small div {
+	background-color: rgba(95, 51, 86, 0.8);
+	}
+
+.marker-cluster-medium {
+	background-color: rgba(95, 51, 86, 0.6);
+	}
+.marker-cluster-medium div {
+	background-color: rgba(95, 51, 86, 0.8);
+	}
+
+.marker-cluster-large {
+	background-color: rgba(95, 51, 86, 0.6);
+	}
+.marker-cluster-large div {
+	background-color: rgba(95, 51, 86, 0.8);
+	}
+
+	.marker-cluster {
+	background-clip: padding-box;
+	border-radius: 20px;
+	}
+.marker-cluster div {
+	width: 30px;
+	height: 30px;
+	margin-left: 5px;
+	margin-top: 5px;
+
+	text-align: center;
+	border-radius: 15px;
+	font: 12px;
+	color: #fff;
+	}
+.marker-cluster span {
+	line-height: 30px;
+	}
